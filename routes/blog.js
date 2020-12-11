@@ -18,7 +18,6 @@ router.get('/list', async function (ctx, next) {
   let author = ctx.query.author || ''
   const keyword = ctx.query.keyword || ''
 
-  // console.log('author------', author)
 
   if (ctx.query.isadmin) {
     console.log('is admin')
@@ -32,6 +31,7 @@ router.get('/list', async function (ctx, next) {
     // 强制查询自己的博客
     author = ctx.session.username
   }
+  // console.log('author------', author)
 
   const listData = await getList(author, keyword)
   // console.log('listData------', listData)
